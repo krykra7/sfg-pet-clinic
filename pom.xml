@@ -4,7 +4,7 @@
 
     <groupId>krykra.spring</groupId>
     <artifactId>sfg-pet-clinic</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.1-RELEASE</version>
     <modules>
         <module>pet-clinic-data</module>
         <module>pet-clinic-web</module>
@@ -12,6 +12,8 @@
 
     <scm>
         <developerConnection>scm:git:https://github.com/krykra7/sfg-pet-clinic.git</developerConnection>
+    <connection>scm:git:https://github.com/krykra7/sfg-pet-clinic.git</connection>
+    <tag>HEAD</tag>
   </scm>
 
     <packaging>pom</packaging>

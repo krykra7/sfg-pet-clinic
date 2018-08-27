@@ -3,7 +3,7 @@
     <parent>
         <artifactId>sfg-pet-clinic</artifactId>
         <groupId>krykra.spring</groupId>
-        <version>0.0.1</version>
+        <version>0.0.1-RELEASE</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
@@ -14,7 +14,7 @@
         <dependency>
             <artifactId>pet-clinic-data</artifactId>
             <groupId>krykra.spring</groupId>
-            <version>0.0.1</version>
+            <version>0.0.1-RELEASE</version>
         </dependency>
 
         <dependency>
@@ -40,9 +40,4 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
     </dependencies>
-
-
-  <scm>
-    <tag>0.0.1-RELEASE</tag>
-  </scm>
 </project>
