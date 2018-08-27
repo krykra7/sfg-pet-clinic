@@ -1,4 +1,4 @@
-package krykra.spring.sfgpetclinic.services;
+package krykra.spring.sfgpetclinic.service;
 
 import java.util.Set;
 
