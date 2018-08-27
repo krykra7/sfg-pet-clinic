@@ -3,7 +3,7 @@ package krykra.spring.sfgpetclinic.model;
 import java.time.LocalDate;
 
 /**
- * Created by Krystian Krawczyk on 8/17/2018.
+ * Created by kk on 8/17/2018.
  */
 public class Pet extends BaseEntity {
 

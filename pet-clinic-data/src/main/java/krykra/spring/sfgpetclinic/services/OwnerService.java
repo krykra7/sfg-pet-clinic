@@ -1,19 +1,11 @@
 package krykra.spring.sfgpetclinic.services;
 
-import java.util.Set;
-
 import krykra.spring.sfgpetclinic.model.Owner;
 
 /**
- * Created by Krystian Krawczyk on 8/27/2018.
+ * Created by kk on 8/27/2018.
  */
-public interface OwnerService {
+public interface OwnerService extends CrudService<Owner, Long> {
 
     Owner findByLastName(String lastName);
-
-    Owner findById(Long id);
-
-    Owner save(Owner owner);
-
-    Set<Owner> findAll();
 }

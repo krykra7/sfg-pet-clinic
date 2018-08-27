@@ -1,7 +1,7 @@
 package krykra.spring.sfgpetclinic.model;
 
 /**
- * Created by Krystian Krawczyk on 8/17/2018.
+ * Created by kk on 8/17/2018.
  */
 public class Person extends BaseEntity{
 

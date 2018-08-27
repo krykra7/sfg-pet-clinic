@@ -3,7 +3,7 @@ package krykra.spring.sfgpetclinic.model;
 import java.io.Serializable;
 
 /**
- * Created by Krystian Krawczyk on 8/27/2018.
+ * Created by kk on 8/27/2018.
  */
 public class BaseEntity implements Serializable {
 
