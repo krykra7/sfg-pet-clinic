@@ -3,7 +3,7 @@ package krykra.spring.sfgpetclinic.model;
 /**
  * Created by Krystian Krawczyk on 8/17/2018.
  */
-public class PetType {
+public class PetType extends BaseEntity {
 
     private String name;
 
