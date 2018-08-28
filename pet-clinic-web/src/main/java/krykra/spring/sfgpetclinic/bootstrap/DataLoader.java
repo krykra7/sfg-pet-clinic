@@ -1,5 +1,6 @@
 package krykra.spring.sfgpetclinic.bootstrap;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -7,8 +8,6 @@ import krykra.spring.sfgpetclinic.model.Owner;
 import krykra.spring.sfgpetclinic.model.Vet;
 import krykra.spring.sfgpetclinic.services.OwnerService;
 import krykra.spring.sfgpetclinic.services.VetService;
-import krykra.spring.sfgpetclinic.services.map.OwnerServiceMap;
-import krykra.spring.sfgpetclinic.services.map.VetServiceMap;
 
 /**
  * Created by kk on 8/28/2018.
@@ -19,9 +18,10 @@ public class DataLoader implements CommandLineRunner {
     private VetService vetService;
     private OwnerService ownerService;
 
-    public DataLoader() {
-        ownerService = new OwnerServiceMap();
-        vetService = new VetServiceMap();
+    @Autowired
+    public DataLoader(VetService vetService, OwnerService ownerService) {
+        this.vetService = vetService;
+        this.ownerService = ownerService;
     }
 
     @Override
