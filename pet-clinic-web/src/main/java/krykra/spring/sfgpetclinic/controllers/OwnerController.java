@@ -1,5 +1,6 @@
 package krykra.spring.sfgpetclinic.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,8 +14,9 @@ import krykra.spring.sfgpetclinic.services.OwnerService;
 @Controller
 public class OwnerController {
 
-    private OwnerService ownerService;
+    private final OwnerService ownerService;
 
+    @Autowired
     public OwnerController(OwnerService ownerService) {
         this.ownerService = ownerService;
     }
