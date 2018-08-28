@@ -1,14 +1,14 @@
-package krykra.spring.sfgpetclinic.map;
+package krykra.spring.sfgpetclinic.services.map;
 
 import java.util.Set;
 
 import krykra.spring.sfgpetclinic.model.Owner;
-import krykra.spring.sfgpetclinic.services.CrudService;
+import krykra.spring.sfgpetclinic.services.OwnerService;
 
 /**
  * Created by kk on 8/27/2018.
  */
-public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements CrudService<Owner, Long> {
+public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
 
     @Override
     public Owner findById(Long id) {
@@ -33,5 +33,10 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
     @Override
     public Owner save(Owner object) {
         return super.save(object.getId(), object);
+    }
+
+    @Override
+    public Owner findByLastName(String lastName) {
+        return null;
     }
 }

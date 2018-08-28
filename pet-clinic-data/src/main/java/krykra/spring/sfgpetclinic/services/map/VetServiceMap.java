@@ -1,14 +1,14 @@
-package krykra.spring.sfgpetclinic.map;
+package krykra.spring.sfgpetclinic.services.map;
 
 import java.util.Set;
 
 import krykra.spring.sfgpetclinic.model.Vet;
-import krykra.spring.sfgpetclinic.services.CrudService;
+import krykra.spring.sfgpetclinic.services.VetService;
 
 /**
  * Created by kk on 8/27/2018.
  */
-public class VetServiceMap extends AbstractMapService<Vet, Long> implements CrudService<Vet, Long> {
+public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
 
     @Override
     public Vet findById(Long id) {

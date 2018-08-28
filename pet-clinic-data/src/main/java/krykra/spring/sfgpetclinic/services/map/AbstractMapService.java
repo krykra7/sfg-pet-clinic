@@ -1,4 +1,4 @@
-package krykra.spring.sfgpetclinic.map;
+package krykra.spring.sfgpetclinic.services.map;
 
 import java.util.HashMap;
 import java.util.HashSet;
