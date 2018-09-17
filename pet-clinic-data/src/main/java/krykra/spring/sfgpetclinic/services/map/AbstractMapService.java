@@ -12,6 +12,9 @@ import krykra.spring.sfgpetclinic.model.BaseEntity;
 /**
  * Created by kk on 8/27/2018.
  */
+
+//Todo: it is possible to make it implements CrudService, implement all methods, and then it is not necessary for all
+//Todo: map services to implement CrudService methods, just extend Abstract Map Service - will se further
 abstract class AbstractMapService<T extends BaseEntity, ID extends Long> {
 
     private Map<Long, T> map = new HashMap<>();
