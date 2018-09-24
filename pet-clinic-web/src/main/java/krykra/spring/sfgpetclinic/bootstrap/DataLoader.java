@@ -5,8 +5,10 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import krykra.spring.sfgpetclinic.model.Owner;
+import krykra.spring.sfgpetclinic.model.PetType;
 import krykra.spring.sfgpetclinic.model.Vet;
 import krykra.spring.sfgpetclinic.services.OwnerService;
+import krykra.spring.sfgpetclinic.services.PetTypeService;
 import krykra.spring.sfgpetclinic.services.VetService;
 
 /**
@@ -17,15 +19,27 @@ public class DataLoader implements CommandLineRunner {
 
     private VetService vetService;
     private OwnerService ownerService;
+    private PetTypeService petTypeService;
 
     @Autowired
-    public DataLoader(VetService vetService, OwnerService ownerService) {
+    public DataLoader(VetService vetService, OwnerService ownerService, PetTypeService petTypeService) {
         this.vetService = vetService;
         this.ownerService = ownerService;
+        this.petTypeService = petTypeService;
     }
 
     @Override
     public void run(String... args) throws Exception {
+        PetType dog = new PetType();
+        dog.setName("Dog");
+
+        PetType savedDogPetType = petTypeService.save(dog);
+
+        PetType cat = new PetType();
+        cat.setName("Cat");
+
+        PetType savedCatPetType = petTypeService.save(cat);
+
         Owner owner1 = new Owner();
         owner1.setFirstName("Jakub");
         owner1.setLastName("Kowalski");

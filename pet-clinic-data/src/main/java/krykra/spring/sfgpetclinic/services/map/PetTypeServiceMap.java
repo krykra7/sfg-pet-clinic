@@ -1,5 +1,7 @@
 package krykra.spring.sfgpetclinic.services.map;
 
+import org.springframework.stereotype.Service;
+
 import java.util.Set;
 
 import krykra.spring.sfgpetclinic.model.PetType;
@@ -8,6 +10,7 @@ import krykra.spring.sfgpetclinic.services.PetTypeService;
 /**
  * Created by kk on 9/21/2018.
  */
+@Service
 public class PetTypeServiceMap extends AbstractMapService<PetType, Long> implements PetTypeService {
 
     @Override
