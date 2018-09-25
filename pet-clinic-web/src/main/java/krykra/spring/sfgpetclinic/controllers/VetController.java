@@ -10,7 +10,7 @@ import krykra.spring.sfgpetclinic.services.VetService;
 /**
  * Created by kk on 8/27/2018.
  */
-@RequestMapping("vets")
+@RequestMapping
 @Controller
 public class VetController {
 
@@ -21,7 +21,7 @@ public class VetController {
         this.vetService = vetService;
     }
 
-    @RequestMapping({"", "/", "/index", "/index.html"})
+    @RequestMapping({"/vets", "/vets/index", "/vets/index.html", "/vets.html"})
     public String listVets(Model model) {
         model.addAttribute("vets", vetService.findAll());
 
