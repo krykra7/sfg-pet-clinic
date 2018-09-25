@@ -1,10 +1,13 @@
 package krykra.spring.sfgpetclinic.services.map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+import krykra.spring.sfgpetclinic.model.Speciality;
 import krykra.spring.sfgpetclinic.model.Vet;
+import krykra.spring.sfgpetclinic.services.SpecialityService;
 import krykra.spring.sfgpetclinic.services.VetService;
 
 /**
@@ -12,6 +15,13 @@ import krykra.spring.sfgpetclinic.services.VetService;
  */
 @Service
 public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
+
+    private final SpecialityService specialityService;
+
+    @Autowired
+    public VetServiceMap(SpecialityService specialityService) {
+        this.specialityService = specialityService;
+    }
 
     @Override
     public Vet findById(Long id) {
@@ -35,6 +45,20 @@ public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetS
 
     @Override
     public Vet save(Vet object) {
-        return super.save(object);
+
+        if (object != null) {
+            if (!object.getSpecialities().isEmpty()) {
+                object.getSpecialities().forEach(speciality -> {
+                    if (speciality.getId() == null) {
+                        Speciality savedSpeciality = specialityService.save(speciality);
+                        speciality.setId(savedSpeciality.getId());
+                    }
+                });
+            }
+
+            return super.save(object);
+        } else {
+            return null;
+        }
     }
 }
