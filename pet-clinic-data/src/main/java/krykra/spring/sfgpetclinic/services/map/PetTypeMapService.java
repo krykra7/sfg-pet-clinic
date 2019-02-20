@@ -4,22 +4,22 @@ import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-import krykra.spring.sfgpetclinic.model.Speciality;
-import krykra.spring.sfgpetclinic.services.SpecialityService;
+import krykra.spring.sfgpetclinic.model.PetType;
+import krykra.spring.sfgpetclinic.services.PetTypeService;
 
 /**
- * Created by kk on 9/24/2018.
+ * Created by kk on 9/21/2018.
  */
 @Service
-public class SpecialityServiceMap extends AbstractMapService<Speciality, Long> implements SpecialityService {
+public class PetTypeMapService extends AbstractMapService<PetType, Long> implements PetTypeService {
 
     @Override
-    public Speciality findById(Long id) {
+    public PetType findById(Long id) {
         return super.findById(id);
     }
 
     @Override
-    public Set<Speciality> findAll() {
+    public Set<PetType> findAll() {
         return super.findAll();
     }
 
@@ -29,12 +29,12 @@ public class SpecialityServiceMap extends AbstractMapService<Speciality, Long> i
     }
 
     @Override
-    public void delete(Speciality object) {
+    public void delete(PetType object) {
         super.delete(object);
     }
 
     @Override
-    public Speciality save(Speciality object) {
+    public PetType save(PetType object) {
         return super.save(object);
     }
 }
