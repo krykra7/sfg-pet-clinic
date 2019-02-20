@@ -1,22 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <artifactId>sfg-pet-clinic</artifactId>
-        <groupId>krykra.spring</groupId>
-        <version>0.0.2-SNAPSHOT</version>
-    </parent>
-
-    <modelVersion>4.0.0</modelVersion>
-
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <artifactId>pet-clinic-web</artifactId>
 
-    <properties>
-        <!-- Web dependencies -->
-        <webjars-bootstrap.version>3.3.6</webjars-bootstrap.version>
-        <webjars-jquery-ui.version>1.11.4</webjars-jquery-ui.version>
-        <webjars-jquery.version>2.2.4</webjars-jquery.version>
-        <wro4j.version>1.8.0</wro4j.version>
-    </properties>
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>wro4j-maven-plugin</artifactId>
+                <configuration>
+                    <contextFolder>${basedir}/src/main/less</contextFolder>
+                    <cssDestinationFolder>${project.build.directory}/classes/static/resources/css</cssDestinationFolder>
+                    <extraConfigFile>${basedir}/src/main/wro/wro.properties</extraConfigFile>
+                    <wroFile>${basedir}/src/main/wro/wro.xml</wroFile>
+                    <wroManagerFactory>ro.isdc.wro.maven.plugin.manager.factory.ConfigurableWroManagerFactory
+                    </wroManagerFactory>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <artifactId>bootstrap</artifactId>
+                        <groupId>org.webjars</groupId>
+                        <version>${webjars-bootstrap.version}</version>
+                    </dependency>
+                </dependencies>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <phase>generate-resources</phase>
+                    </execution>
+                </executions>
+                <groupId>ro.isdc.wro4j</groupId>
+                <version>${wro4j.version}</version>
+            </plugin>
+        </plugins>
+    </build>
 
     <dependencies>
         <dependency>
@@ -26,81 +44,65 @@
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
+            <groupId>org.springframework.boot</groupId>
             <scope>runtime</scope>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
+            <groupId>org.springframework.boot</groupId>
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
+            <groupId>org.springframework.boot</groupId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
+            <groupId>org.springframework.boot</groupId>
         </dependency>
 
         <!-- webjars -->
         <dependency>
-            <groupId>org.webjars</groupId>
             <artifactId>webjars-locator-core</artifactId>
+            <groupId>org.webjars</groupId>
         </dependency>
         <dependency>
-            <groupId>org.webjars</groupId>
             <artifactId>jquery</artifactId>
+            <groupId>org.webjars</groupId>
             <version>${webjars-jquery.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.webjars</groupId>
             <artifactId>jquery-ui</artifactId>
+            <groupId>org.webjars</groupId>
             <version>${webjars-jquery-ui.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.webjars</groupId>
             <artifactId>bootstrap</artifactId>
+            <groupId>org.webjars</groupId>
             <version>${webjars-bootstrap.version}</version>
         </dependency>
         <!-- end of webjars -->
 
         <dependency>
-            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <groupId>org.springframework.boot</groupId>
         </dependency>
     </dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>ro.isdc.wro4j</groupId>
-                <artifactId>wro4j-maven-plugin</artifactId>
-                <version>${wro4j.version}</version>
-                <executions>
-                    <execution>
-                        <phase>generate-resources</phase>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <wroManagerFactory>ro.isdc.wro.maven.plugin.manager.factory.ConfigurableWroManagerFactory</wroManagerFactory>
-                    <cssDestinationFolder>${project.build.directory}/classes/static/resources/css</cssDestinationFolder>
-                    <wroFile>${basedir}/src/main/wro/wro.xml</wroFile>
-                    <extraConfigFile>${basedir}/src/main/wro/wro.properties</extraConfigFile>
-                    <contextFolder>${basedir}/src/main/less</contextFolder>
-                </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.webjars</groupId>
-                        <artifactId>bootstrap</artifactId>
-                        <version>${webjars-bootstrap.version}</version>
-                    </dependency>
-                </dependencies>
-            </plugin>
-        </plugins>
-    </build>
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <artifactId>sfg-pet-clinic</artifactId>
+        <groupId>krykra.spring</groupId>
+        <version>0.0.2-SNAPSHOT</version>
+    </parent>
+
+    <properties>
+        <!-- Web dependencies -->
+        <webjars-bootstrap.version>3.3.6</webjars-bootstrap.version>
+        <webjars-jquery-ui.version>1.11.4</webjars-jquery-ui.version>
+        <webjars-jquery.version>2.2.4</webjars-jquery.version>
+        <wro4j.version>1.8.0</wro4j.version>
+    </properties>
 </project>

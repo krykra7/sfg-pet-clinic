@@ -1,54 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <artifactId>sfg-pet-clinic</artifactId>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <groupId>org.springframework.boot</groupId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-release-plugin</artifactId>
+                <configuration>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                    <goals>install</goals>
+                </configuration>
+                <groupId>org.apache.maven.plugins</groupId>
+                <version>2.5.3</version>
+            </plugin>
+        </plugins>
+    </build>
+    <description>SFG Pet Clinic Project</description>
+    <groupId>krykra.spring</groupId>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>krykra.spring</groupId>
-    <artifactId>sfg-pet-clinic</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
     <modules>
         <module>pet-clinic-data</module>
         <module>pet-clinic-web</module>
     </modules>
 
-    <scm>
-        <developerConnection>scm:git:https://github.com/krykra7/sfg-pet-clinic.git</developerConnection>
-        <connection>scm:git:https://github.com/krykra7/sfg-pet-clinic.git</connection>
-      <tag>HEAD</tag>
-  </scm>
+    <name>sfg-pet-clinic</name>
 
     <packaging>pom</packaging>
-
-    <name>sfg-pet-clinic</name>
-    <description>SFG Pet Clinic Project</description>
-
     <parent>
-        <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.4.RELEASE</version>
-        <relativePath /> <!-- lookup parent from repository -->
+        <groupId>org.springframework.boot</groupId>
+        <relativePath/>
+        <version>2.0.4.RELEASE</version> <!-- lookup parent from repository -->
     </parent>
 
     <properties>
+        <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>1.8</java.version>
     </properties>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-release-plugin</artifactId>
-                <version>2.5.3</version>
-                <configuration>
-                    <goals>install</goals>
-                    <autoVersionSubmodules>true</autoVersionSubmodules>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+    <scm>
+        <connection>scm:git:https://github.com/krykra7/sfg-pet-clinic.git</connection>
+        <developerConnection>scm:git:https://github.com/krykra7/sfg-pet-clinic.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
+    <version>0.0.2-SNAPSHOT</version>
 </project>
