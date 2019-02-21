@@ -1,5 +1,6 @@
 package krykra.spring.sfgpetclinic.services.springdatajpa;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +20,7 @@ public class SpecialitySDJpaService implements SpecialityService {
 
     private final SpecialityRepository specialityRepository;
 
+    @Autowired
     public SpecialitySDJpaService(SpecialityRepository specialityRepository) {
         this.specialityRepository = specialityRepository;
     }
