@@ -11,10 +11,12 @@ import krykra.spring.sfgpetclinic.model.Pet;
 import krykra.spring.sfgpetclinic.model.PetType;
 import krykra.spring.sfgpetclinic.model.Speciality;
 import krykra.spring.sfgpetclinic.model.Vet;
+import krykra.spring.sfgpetclinic.model.Visit;
 import krykra.spring.sfgpetclinic.services.OwnerService;
 import krykra.spring.sfgpetclinic.services.PetTypeService;
 import krykra.spring.sfgpetclinic.services.SpecialityService;
 import krykra.spring.sfgpetclinic.services.VetService;
+import krykra.spring.sfgpetclinic.services.VisitService;
 
 /**
  * Created by kk on 8/28/2018.
@@ -22,18 +24,20 @@ import krykra.spring.sfgpetclinic.services.VetService;
 @Component
 public class DataLoader implements CommandLineRunner {
 
-    private VetService vetService;
-    private OwnerService ownerService;
-    private PetTypeService petTypeService;
-    private SpecialityService specialityService;
+    private final VetService vetService;
+    private final OwnerService ownerService;
+    private final PetTypeService petTypeService;
+    private final SpecialityService specialityService;
+    private final VisitService visitService;
 
     @Autowired
     public DataLoader(VetService vetService, OwnerService ownerService, PetTypeService petTypeService,
-                      SpecialityService specialityService) {
+                      SpecialityService specialityService, VisitService visitService) {
         this.vetService = vetService;
         this.ownerService = ownerService;
         this.petTypeService = petTypeService;
         this.specialityService = specialityService;
+        this.visitService = visitService;
     }
 
     @Override
@@ -95,6 +99,12 @@ public class DataLoader implements CommandLineRunner {
         owner2.getPets().add(michalsPet);
 
         ownerService.save(owner2);
+
+        Visit catVisit = new Visit();
+        catVisit.setPet(jakubsPet);
+        catVisit.setDescription("Sneezy Kitty");
+
+        visitService.save(catVisit);
 
         System.out.println("Loaded Owners...");
 
