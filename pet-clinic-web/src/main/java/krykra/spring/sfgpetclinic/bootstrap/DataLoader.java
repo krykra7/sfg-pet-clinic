@@ -88,8 +88,8 @@ public class DataLoader implements CommandLineRunner {
         owner2.setFirstName("Michał");
         owner2.setLastName("Wolski");
         owner2.setAddress("Adres");
-        owner2.setCity("City");
-        owner2.setTelephone("123456789");
+        owner2.setCity("City2");
+        owner2.setTelephone("123456799");
 
         Pet michalsPet = new Pet();
         michalsPet.setBirthDate(LocalDate.now());
