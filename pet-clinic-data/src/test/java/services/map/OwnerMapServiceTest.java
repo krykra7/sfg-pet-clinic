@@ -1,4 +1,4 @@
-package krykra.spring.sfgpetclinic.services.map;
+package services.map;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -6,6 +6,9 @@ import org.junit.jupiter.api.Test;
 import java.util.Set;
 
 import krykra.spring.sfgpetclinic.model.Owner;
+import krykra.spring.sfgpetclinic.services.map.OwnerMapService;
+import krykra.spring.sfgpetclinic.services.map.PetMapService;
+import krykra.spring.sfgpetclinic.services.map.PetTypeMapService;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
